@@ -1,0 +1,15 @@
+#b1{
+    color: red;
+}
+#b2{
+    background:aquamarine;
+}
+div{
+    background:green;
+    height: 12vh;
+}
+#p1{
+    background: rgb(52, 188, 223);
+    color:magenta;
+    display: inline-flex;
+}
