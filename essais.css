@@ -1,15 +1,68 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+p{
+    margin: 0;
+}
 #b1{
     color: red;
 }
 #b2{
     background:aquamarine;
 }
-div{
+/* div{
     background:green;
     height: 12vh;
-}
+
+} */
 #p1{
-    background: rgb(52, 188, 223);
-    color:magenta;
-    display: inline-flex;
+
+    color:rgb(4, 0, 255);
+
+}
+#tog{
+    font-size: 2em;
+    color:rgb(157, 255, 0);
+}
+span{
+    color:chartreuse
+}
+#p1:hover, #p2:hover{
+    cursor: pointer;
+background-color: grey;
+}
+.test{
+    position:relative;
+    /* background: red; */
+    
+    padding-bottom: calc(100% / (var(--ratio, calc(1 / 1))));
+}
+.test::before{
+    content: '';
+    display: block;
+}
+.frame{
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom: 0;
+    width:100%;
+    /* height:100%; */
+    background-color: rgb(255, 205, 234);
+}
+.boite{
+    padding: 100px;
+    height:500px;
+    width: 80%;
+    position:relative;
+    
+}
+.envel{
+    
+width: 100%;
+
+
 }
