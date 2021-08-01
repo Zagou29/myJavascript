@@ -29,6 +29,11 @@ body {
   color: #ffffff;
   cursor: pointer;
 }
+#choixMenu{
+  color:white;
+  flex:1;
+text-align: center;
+}
 
 .nav__links {
   position: fixed;
@@ -89,4 +94,32 @@ body {
 .nav--open .nav__overlay {
   visibility: visible;
   opacity: 1;
+}
+.boiteEssai{
+  display:flex;
+  flex-direction: column;
+}
+.carre1{
+  width:100px;
+  height: 100px;
+  background-color: red;
+  /* visibility:hidden; */
+}
+.carre2{
+  width:100px;
+  height: 100px;
+  background-color: blue;
+  opacity:0.5;
+  /* visibility: hidden; */
+  display: none;
+}
+.carre3{
+  width:100px;
+  height: 100px;
+  background-color: yellow;
+}
+.container{
+  /* visibility: hidden; */
+  opacity: .5;
+
 }

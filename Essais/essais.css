@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+}
+#b1 {
+  color: red;
+}
+#b2 {
+  background: aquamarine;
+}
+/* div{
+    background:green;
+    height: 12vh;
+
+} */
+#p1 {
+  color: rgb(4, 0, 255);
+}
+#tog {
+  font-size: 2em;
+  color: rgb(157, 255, 0);
+}
+span {
+  color: chartreuse;
+}
+#p1:hover,
+#p2:hover {
+  cursor: pointer;
+  background-color: grey;
+}
+.test {
+  position: relative;
+  /* background: red; */
+  width: 100%;
+  margin: auto;
+  padding-bottom: 75%;
+  
+}
+.test::before {
+  content: "";
+  display: block;
+}
+
+.boite {
+  width: 50%;
+  margin: auto;
+ 
+}
+.envel {
+  width: 100%;
+}
+.lect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.promise {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+display:flex;
+justify-content: center;
+align-items: center;
+}
+
