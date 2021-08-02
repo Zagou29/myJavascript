@@ -1,0 +1,22 @@
+.select {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 300 px;
+  gap: 1px;
+}
+.item {
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 3px;
+  background: #eeeeee;
+  transition: background 0.1s;
+}
+.selected {
+  background: #009578;
+  color: white;
+}
+.custom_select {
+  display: none;
+}
