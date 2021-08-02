@@ -4,6 +4,9 @@ class CustomSelect {
     this.originElement = origin;
     this.customSelect = document.createElement("div");
     this.customSelect.classList.add("select");
+    /* inserer le titre du tableau de selection avant le select, qui disparait */
+    this.originElement.insertAdjacentHTML("beforebegin", `<p id="titre"> ${this.originElement.name}</p>`)
+    
     /* inserer la div ".select" juste après le select d'origine */
     this.originElement.insertAdjacentElement("afterend", this.customSelect);
     /* pour chaque <option>, créer une div .item et data-Id */
@@ -42,6 +45,7 @@ class CustomSelect {
 }
 document.querySelectorAll(".custom_select").forEach((selectElement) => {
   new CustomSelect(selectElement);
+ 
 });
 
 // new CustomSelect(document.querySelector(".custom_select"));
