@@ -280,41 +280,56 @@
 // [1986, 1998, 2006, 2018, 2020]
 //====================================
 
-function quickSort(arr, deb, fin) {
-  if (deb >= fin) {
-    return;
-  }
-  /* prend la dernière valeur, et isole à gauche tous les chiffres plus faibles et a gauche tous les plus grands et retourne l'index de cette valeur pivot */
-  let index = partition(arr, deb, fin);
-  /*refait la meme chose à gauche, puis a  doite*/
-  quickSort(arr, index + 1, fin);
-  quickSort(arr, deb, index - 1);
-}
+// function quickSort(arr, deb, fin) {
+//   if (deb >= fin) {
+//     return;
+//   }
+//   /* prend la dernière valeur, et isole à gauche tous les chiffres plus faibles et a gauche tous les plus grands et retourne l'index de cette valeur pivot */
+//   let index = partition(arr, deb, fin);
+//   /*refait la meme chose à gauche, puis a  doite*/
+//   quickSort(arr, index + 1, fin);
+//   quickSort(arr, deb, index - 1);
+// }
 
-function partition(arr, start, end) {
-  let pivotIndex = start;
-  let pivotValue = arr[end];
-  for (let i = start; i < end; i++) {
-    if (arr[i] < pivotValue) {
-      swap(arr, i, pivotIndex);
-      pivotIndex++;
-    }
-  }
-  swap(arr, pivotIndex, end);
-  return pivotIndex;
-}
+// function partition(arr, start, end) {
+//   let pivotIndex = start;
+//   let pivotValue = arr[end];
+//   for (let i = start; i < end; i++) {
+//     if (arr[i] < pivotValue) {
+//       swap(arr, i, pivotIndex);
+//       pivotIndex++;
+//     }
+//   }
+//   swap(arr, pivotIndex, end);
+//   return pivotIndex;
+// }
 
-function swap(arr, a, b) {
-  let temp = arr[a];
-  arr[a] = arr[b];
-  arr[b] = temp;
-}
+// function swap(arr, a, b) {
+//   let temp = arr[a];
+//   arr[a] = arr[b];
+//   arr[b] = temp;
+// }
 
-const arr = [
-  45, 98, 32, 67, 4, 30, 87, 45, 34, 91, 100, 56, 78, 34, 12, 31, 342,
-];
+// const arr = [
+//   45, 98, 32, 67, 4, 30, 87, 45, 34, 91, 100, 56, 78, 34, 12, 31, 342,
+// ];
 
-console.log(arr);
-quickSort(arr, 0, arr.length - 1);
+// console.log(arr);
+// quickSort(arr, 0, arr.length - 1);
 
-console.log(arr);
+// console.log(arr);
+this.x = 9;
+console.log("this x =" + this.x);
+var module = {
+  x: 86,
+  getX: function()  {
+    return this.x;
+  },
+};
+module.getX();
+console.log(module.getX());
+let getX = module.getX;
+
+console.log("getx() = " + getX());
+let boundGetX = getX.bind(module);
+console.log("boundGetX = " + boundGetX());
