@@ -24,6 +24,7 @@ body{
 img{
     object-fit:cover ;
     height:100%;
+    max-width:100%;
 }
 .item_choisi{
     display:block;  

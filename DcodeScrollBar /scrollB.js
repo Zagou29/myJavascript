@@ -5,15 +5,15 @@
   window.addEventListener("scroll", () => {
     if (lastScrollY < window.scrollY) {
       nav.classList.add("nav--hidden");
-
+/* 
       console.log(
         lastScrollY = lastScrollY < window.scrollY ? "montée":"descente"  
-      );
+      ); */
     } else {
       nav.classList.remove("nav--hidden");
-       console.log(
+      /* console.log(
          (lastScrollY = lastScrollY < window.scrollY ? "montée" : "descente")
-       );
+       ); */
     }
 
     lastScrollY = window.scrollY;
