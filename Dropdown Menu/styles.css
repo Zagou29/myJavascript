@@ -31,7 +31,7 @@ body {
 }
 
 .dropdown-menu {
-  position: absolute;
+  position: absolute; 
   left: 0;
   top: calc(100% + .25rem);
   background-color: white;
@@ -64,4 +64,8 @@ body {
 
 .login-form > input {
   margin-bottom: .5rem;
+}
+.main{
+  background-color: green;
+  height:90vh;
 }
