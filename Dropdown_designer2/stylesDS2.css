@@ -19,7 +19,7 @@ body {
   grid-template-areas:
     "menu"
     "video"
-    "envel";
+    "main";
 }
 .menu {
   grid-area: menu;
@@ -32,7 +32,7 @@ body {
   grid-area: video;
 }
 .enveloppe {
-  grid-area: envel;
+  grid-area: main;
   position: relative;
   background-color: yellowgreen;
   padding: 10px 0;
@@ -54,7 +54,7 @@ body {
   color: black;
   border-radius: 5px;
   margin: auto;
-  background: white;
+  
   overflow: hidden;
   z-index: 10;
   box-shadow: 0 5px 5px grey;
@@ -70,7 +70,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: whitesmoke;
+  background: rgb(245, 245, 245);
   cursor: pointer;
   border-radius: 0 0 5px 5px;
   box-shadow: 0 5px 5px grey;
@@ -86,6 +86,7 @@ body {
   display: flex;
   justify-content: center;
   align-content: center;
+  background-color: rgb(243, 238, 231);
 }
 .bloc-links div {
   width: auto;
@@ -109,9 +110,8 @@ a:hover {
 .bloc-links ul {
   background-color: rgba(209, 204, 204, 0.5);
 }
-.main {
-  overflow-y: auto;
-  /* background-color: yellow; */
+.ecranVideos {
+  overflow-y: scroll;
   height: calc(100vh - 58px);
 }
 a {

@@ -5,7 +5,7 @@ let litElements = (listEl, blocLink) => {
       /* ramene les dropdown à Zero */
       blocLink.style.height = `0px`;
       /* supprime des ecrans YT */
-      main.innerHTML = "";
+      ecVideos.innerHTML = "";
       /* prépare les classes à chercher à partir des dataset des menus */
       if (el.dataset.ville) {
         afficheLiens(`.${el.dataset.id}.${el.dataset.ville}`);
@@ -36,11 +36,11 @@ let dimZoom = (el) => {
 };
 
 // ====== lister les liens de 'video' dont la classe correspond au menu choisi
-// ====== créer les boites et Iframe YT de l'ID du lien video et rajouter le dataset ecran du lien 
+// ====== créer les boites et Iframe YT de l'ID du lien video et rajouter le dataset ecran du lien
 let afficheLiens = (param) => {
   const lien = document.querySelectorAll(param);
   lien.forEach((vid) => {
-    main.insertAdjacentHTML(
+    ecVideos.insertAdjacentHTML(
       "beforeend",
       ` <div class="ecranYT" data-ec ="${vid.dataset.ec}">
       <iframe
@@ -55,23 +55,24 @@ let afficheLiens = (param) => {
     );
   });
   // calcul et fournit les dimensions de tous les ecrans en fonction des dataset.ec
-  const ecrans = main.querySelectorAll(".ecranYT");
+  const ecrans = ecVideos.querySelectorAll(".ecranYT");
   ecrans.forEach((ecr) => {
     dimZoom(ecr);
   });
-}
+};
 
 /* ========cliquer sur les menus ouvre les dropdown========= */
-const main = document.querySelector(".main");
+// menus co
+const ecVideos = document.querySelector(".ecranVideos");
 const menus = document.querySelectorAll(".btn-top");
 const blocs = document.querySelectorAll(".bloc-links");
 blocs.forEach((bl) => (bl.style.height = `0px`));
 
 document.addEventListener("click", (e) => {
   const estMenu = e.target.matches(".btn-top");
-  /* si ce n'est pas un bouton de menu et un menu => on ne fait rien */
+  /*si on  clique à l'intérieur du sous menu et en dehors du menu, rien ne se passe */
   if (!estMenu && e.target.closest(".dropdown") != null) return;
-  /* si c'est un menu courrent dropdown est le menu lié au bouton, on le rend actif */
+  /* clic sur le menu, on affiche le sous menu ou vice versa'*/
   let dropCour;
   if (estMenu) {
     dropCour = e.target.querySelector(".bloc-links");
@@ -79,12 +80,11 @@ document.addEventListener("click", (e) => {
     if (dropCour.style.height === `0px`)
       dropCour.style.height = dropCour.scrollHeight + "px";
     else dropCour.style.height = `0px`;
-/* lit les liens qu'on clique, va chercher leur dataset et les affiche */
+    /* lit les liens qu'on clique, va chercher leur dataset et les affiche */
     const liItems = dropCour.querySelectorAll("li");
     const spane = dropCour.querySelectorAll("span");
     litElements(liItems, dropCour);
     litElements(spane, dropCour);
-    
   }
 
   /* on efface tous les menus ouverts hors menu courant */
