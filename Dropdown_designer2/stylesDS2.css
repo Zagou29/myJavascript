@@ -9,13 +9,13 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #f1f1f1;
-  --decDrop: 170px;
+  --decDrop: 10rem;
 }
 .page {
   display: grid;
   height: 100vh;
   grid-template-columns: auto;
-  grid-template-rows: 38px 0 1fr;
+  grid-template-rows: 38px 0 1fr auto;
   grid-template-areas:
     "menu"
     "video"
@@ -25,6 +25,9 @@ body {
   grid-area: menu;
   display: flex;
   justify-content: start;
+}
+.checkB {
+  border: 1px dotted rgba(128, 128, 128, 0.5);
 }
 
 .videos {
@@ -54,50 +57,47 @@ body {
   color: black;
   border-radius: 5px;
   margin: auto;
-  
   overflow: hidden;
   z-index: 10;
   box-shadow: 0 5px 5px grey;
 }
 
 .btn-top {
-
   width: var(--decDrop);
-  margin-left: 2rem;
+  margin-left: 0.5rem;
   border: none;
   outline: none;
+  text-align: center;
   font-size: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgb(245, 245, 245);
+  background-color: white;
   cursor: pointer;
   border-radius: 0 0 5px 5px;
   box-shadow: 0 5px 5px grey;
-  z-index: 10;
-}
-.btn-top svg {
-  width: 20px;
+  z-index: 5;
 }
 .bloc-links {
   padding: 0 1rem;
   transition: height 0.3s ease-in-out;
   height: 0px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-content: center;
-  background-color: rgb(243, 238, 231);
+  background-color: whitesmoke;
+  z-index: 20;
 }
-.bloc-links div {
+/* .bloc-links div {
   width: auto;
-}
+} */
 .bloc-links li,
-span ,a{
+span,
+a {
   padding: 5px 5px;
   list-style-type: none;
   color: black;
   /* margin-left: 5px; */
   font-size: 1rem;
+  text-align: left;
   display: block;
   width: auto;
 }
@@ -105,15 +105,37 @@ span ,a{
 span:hover,
 a:hover {
   color: green;
+  text-decoration: underline;
 }
 
-.bloc-links ul {
-  background-color: rgba(209, 204, 204, 0.5);
-}
 .ecranVideos {
   overflow-y: scroll;
   height: calc(100vh - 58px);
 }
 a {
   text-decoration: none;
+}
+.sousMenus {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr 1fr;
+  align-content: center;
+}
+.sousMenus > div {
+  border: 1px dotted rgba(128, 128, 128, 0.5);
+  display: flex;
+  align-items: center;
+}
+.retour {
+  margin: auto;
+  border: none; 
+  display: block;
+  background-color: transparent;
+}
+.retour > img:hover {
+  filter:drop-shadow(0 -2px 3px black);
+}
+.retour > img {
+  width: 40px;
+
 }

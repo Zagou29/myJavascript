@@ -1,5 +1,30 @@
+/* ---------fonction de retour vers haut de page------------- */
+const toTop = () => ecVideos.scrollTo({ top: 0, behavior: "smooth" });
+/* ------------------- */
+const typeVid = (el) => {
+  const diapo = el.querySelector("#diapo");
+  const video = el.querySelector("#video");
+  let type;
+  if (diapo && video) {
+    if (video.checked) {
+      type = ".vid";
+      if (diapo.checked) {
+        type = "";
+      }
+    } else {
+      if (diapo.checked) {
+        type = ".dia";
+      } else {
+        type = "non";
+      }
+    }
+    return type;
+  }
+  type = "";
+  return type;
+};
 /* Dans une liste de liens, on clique sur un lien, on referme le dropdown, on efface les videos précédentes et on affiche les nouvelles */
-let litElements = (listEl, blocLink) => {
+const litElements = (listEl, blocLink) => {
   listEl.forEach((el) => {
     el.addEventListener("click", () => {
       /* ramene les dropdown à Zero */
@@ -8,9 +33,11 @@ let litElements = (listEl, blocLink) => {
       ecVideos.innerHTML = "";
       /* prépare les classes à chercher à partir des dataset des menus */
       if (el.dataset.ville) {
-        afficheLiens(`.${el.dataset.id}.${el.dataset.ville}`);
+        afficheLiens(
+          `${typeVid(blocLink)}.${el.dataset.id}.${el.dataset.ville}`
+        );
       } else {
-        afficheLiens(`.${el.dataset.id}`);
+        afficheLiens(`${typeVid(blocLink)}.${el.dataset.id}`);
       }
     });
   });
@@ -18,7 +45,7 @@ let litElements = (listEl, blocLink) => {
 /* ===dimensions frames: compare le ratio aux dim de la fenetre et affiche en fonction du ratio 43 ou 169 des videos YT, indiqué via le dataset ec (passé via rat)*/
 
 const reduct = 0.95;
-let dimZoom = (el) => {
+const dimZoom = (el) => {
   let ratioI = 16 / 9;
   /* si ratio 43 dans la liste passer à 4/3*/
   if (el.dataset.ec === "43") ratioI = 4 / 3;
@@ -37,7 +64,7 @@ let dimZoom = (el) => {
 
 // ====== lister les liens de 'video' dont la classe correspond au menu choisi
 // ====== créer les boites et Iframe YT de l'ID du lien video et rajouter le dataset ecran du lien
-let afficheLiens = (param) => {
+const afficheLiens = (param) => {
   const lien = document.querySelectorAll(param);
   lien.forEach((vid) => {
     ecVideos.insertAdjacentHTML(
@@ -54,6 +81,16 @@ let afficheLiens = (param) => {
       </br>`
     );
   });
+  /* rajoute l'icone de retour Home en fin de page videos si plus d'une affichée */
+  if (ecVideos.innerHTML && lien.length > 1) {
+    ecVideos.insertAdjacentHTML(
+      "beforeend",
+      `<button onclick="toTop()" class="retour"><img
+            src="./Images/retour.png"
+            alt="back to top"
+          /></button>`
+    );
+  }
   // calcul et fournit les dimensions de tous les ecrans en fonction des dataset.ec
   const ecrans = ecVideos.querySelectorAll(".ecranYT");
   ecrans.forEach((ecr) => {
@@ -80,6 +117,7 @@ document.addEventListener("click", (e) => {
     if (dropCour.style.height === `0px`)
       dropCour.style.height = dropCour.scrollHeight + "px";
     else dropCour.style.height = `0px`;
+
     /* lit les liens qu'on clique, va chercher leur dataset et les affiche */
     const liItems = dropCour.querySelectorAll("li");
     const spane = dropCour.querySelectorAll("span");

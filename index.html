@@ -16,29 +16,70 @@
         Voyages
         <div class="dropdown">
           <div class="bloc-links">
-            <div>
-              <ul>
-                <li data-id="france" data-ville="paris">France</li>
-                <li data-id="info2" data-ville>liens 2</li>
-                <li data-id="grece">grece</li>
-              </ul>
-              <span data-id="cyclades" data-ville>cyclades</span>
+            <br />
+            <div class="checkB">
+              <label for="diapo">Diapos</label>
+              <input type="checkbox" id="diapo" name="diapos" value=".dia" />
+              <label for="video">Videos</label>
+              <input
+                type="checkbox"
+                id="video"
+                name="Videos"
+                value=".vid"
+                checked
+              />
             </div>
-            <div>
-              <ul>
-                <li data-id="info4" data-ville>liens 4</li>
-                <li data-id="info5" data-ville>liens 5</li>
-                <li data-id="info6" data-ville>liens 6</li>
-              </ul>
-              <span data-id="glob1" data-ville>Global2</span>
-            </div>
-            <div>
-              <ul>
-                <li data-id="info7" data-ville>liens 7</li>
-                <li data-id="info8" data-ville>liens 8</li>
-                <li data-id="info9" data-ville>liens 9</li>
-              </ul>
-              <span data-id="glab1" data-ville>Global3</span>
+            <div class="sousMenus">
+              <div>
+                <ul>
+                  <li data-id="amer" data-ville="">Amerique</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li data-id="amer" data-ville="usa">Etats Unis</li>
+                  <li data-id="amer" data-ville="mex">Mexique</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li data-id="info7" data-ville>Asie</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li data-id="info7" data-ville>Chine</li>
+                  <li data-id="info8" data-ville>Vietnam</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li data-id="info7" data-ville>Europe</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li data-id="info9" data-ville>Irlande</li>
+                  <li data-id="info7" data-ville>France Nord</li>
+                  <li data-id="info8" data-ville>France Sud</li>
+                  <li data-id="info9" data-ville>Esp Portugal</li>
+                  <li data-id="info9" data-ville>Méditerranée</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li data-id="info7" data-ville>Iles</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li data-id="info8" data-ville>France</li>
+                  <li data-id="info8" data-ville>Royaume Uni</li>
+                  <li data-id="info9" data-ville>Méditerranée</li>
+                  <li data-id="info7" data-ville>Antilles</li>
+                </ul>
+              </div>
+              <br />
             </div>
           </div>
         </div>
@@ -51,7 +92,7 @@
               <ul>
                 <li data-id="usa">usa</li>
                 <li data-id="info2" data-ville>links 2</li>
-                <li data-id="usa" data-ville="ny">NY 3</li>
+                <li data-id="amer" data-ville="ny">NY</li>
               </ul>
               <span data-id="global" data-ville>Global1</span>
             </div>
@@ -125,15 +166,17 @@
         </li>
         <li data-id="FQAg0BC8FUs">2010 Denver to Chicago</li>
         <li data-id="3V3zSkFGd60" class="france">2010 Marielle to Dickie</li>
-        <li data-id="Bosccg9hi0I" data-ec="43" class="usa">2010 New York</li>
+        <li data-id="Bosccg9hi0I" data-ec="43" class="vid amer ny">
+          2010 New York
+        </li>
         <li data-id="9rWCfrI0ibk">2011 Martinique</li>
-        <li data-id="hRsY9fVv9Gc" data-ec="43" class="france paris">
+        <li data-id="hRsY9fVv9Gc" data-ec="43" class="dia amer mex">
           2011 Suisse en raquettes
         </li>
-        <li data-id="tVqPPMabdRo" data-ec="43" class="usa a">
+        <li data-id="tVqPPMabdRo" data-ec="43" class="mex">
           2011 New York avec Bea & Dom
         </li>
-        <li data-id="LqTOUsQ-HM8" class="usa ny">2011 Quebec</li>
+        <li data-id="LqTOUsQ-HM8" class="vid amer usa">2011 Quebec</li>
         <li data-id="k-rncFbrN20">2012 Saint Martin</li>
         <li data-id="-GDMBk47-2E" class="france">2013 Beijing Muraille</li>
         <li data-id="y-zwYwNNNFU">2013 Shaolin à Longmen</li>
@@ -144,9 +187,9 @@
         <li data-id="Q16FcXE_iYY" class="cyclades paris">
           2014 Iles Anglo Normandes
         </li>
-        <li data-id="qepT5JwgNmQ">2014 Grèce</li>
-        <li data-id="bcjkP9nCmJM">2014 Soirée grecque</li>
-        <li data-id="JKfWufOnld4">2015 Ile de Sein</li>
+        <li data-id="qepT5JwgNmQ" data-vid="V">2014 Grèce</li>
+        <li data-id="bcjkP9nCmJM" data-vid="D">2014 Soirée grecque</li>
+        <li data-id="JKfWufOnld4" data-dia="D">2015 Ile de Sein</li>
         <li data-id="FM70V0IzhG8">2015 Rando Granit Rose</li>
         <li data-id="Fc-d_t1DQv0">2015 Balade à Port Launé</li>
         <li data-id="kMVnLV5KeC8">2915 Quercy</li>
