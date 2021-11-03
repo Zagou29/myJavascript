@@ -2,10 +2,12 @@
 const toTop = () => ecVideos.scrollTo({ top: 0, behavior: "smooth" });
 /* ------------------- */
 const typeVid = (el) => {
+  /* chercher si Diapos et/ou Videos sont covchés dans voyages */
   const diapo = el.querySelector("#diapo");
   const video = el.querySelector("#video");
   let type;
   if (diapo && video) {
+    /* si oui créer la future classe .vid ou .dia ou "" pour isoler diapos ou videos */
     if (video.checked) {
       type = ".vid";
       if (diapo.checked) {
@@ -21,6 +23,7 @@ const typeVid = (el) => {
     return type;
   }
   type = "";
+
   return type;
 };
 /* Dans une liste de liens, on clique sur un lien, on referme le dropdown, on efface les videos précédentes et on affiche les nouvelles */
@@ -29,15 +32,19 @@ const litElements = (listEl, blocLink) => {
     el.addEventListener("click", () => {
       /* ramene les dropdown à Zero */
       blocLink.style.height = `0px`;
+
       /* supprime des ecrans YT */
       ecVideos.innerHTML = "";
       /* prépare les classes à chercher à partir des dataset des menus */
-      if (el.dataset.ville) {
-        afficheLiens(
-          `${typeVid(blocLink)}.${el.dataset.id}.${el.dataset.ville}`
-        );
-      } else {
-        afficheLiens(`${typeVid(blocLink)}.${el.dataset.id}`);
+      /* si typevid ="", les classes .vidf et .diaf sont intégrées aux dataset des familles Id */
+      console.log(el.innerHTML);
+      const titre = document.querySelector(".titre");
+      const aff = afficheLiens(
+        typeVid(blocLink) + el.dataset.id + el.dataset.ville
+      );
+      titre.innerHTML = "";
+      if (aff) {
+        titre.innerHTML = el.innerHTML;
       }
     });
   });
@@ -66,6 +73,7 @@ const dimZoom = (el) => {
 // ====== créer les boites et Iframe YT de l'ID du lien video et rajouter le dataset ecran du lien
 const afficheLiens = (param) => {
   const lien = document.querySelectorAll(param);
+
   lien.forEach((vid) => {
     ecVideos.insertAdjacentHTML(
       "beforeend",
@@ -96,6 +104,7 @@ const afficheLiens = (param) => {
   ecrans.forEach((ecr) => {
     dimZoom(ecr);
   });
+  return lien.length;
 };
 
 /* ========cliquer sur les menus ouvre les dropdown========= */
@@ -110,6 +119,7 @@ document.addEventListener("click", (e) => {
   /*si on  clique à l'intérieur du sous menu et en dehors du menu, rien ne se passe */
   if (!estMenu && e.target.closest(".dropdown") != null) return;
   /* clic sur le menu, on affiche le sous menu ou vice versa'*/
+  console.log(e.target);
   let dropCour;
   if (estMenu) {
     dropCour = e.target.querySelector(".bloc-links");
@@ -121,6 +131,7 @@ document.addEventListener("click", (e) => {
     /* lit les liens qu'on clique, va chercher leur dataset et les affiche */
     const liItems = dropCour.querySelectorAll("li");
     const spane = dropCour.querySelectorAll("span");
+
     litElements(liItems, dropCour);
     litElements(spane, dropCour);
   }

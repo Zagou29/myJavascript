@@ -7,111 +7,165 @@
     <meta name="robots" content="noindex, nofollow,noimageindex" />
     <meta name="description" content="Toutes les videos de Zagou" />
     <title>Zagou_Videos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Yanone+Kaffeesatz:wght@200&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./Dropdown_designer2/stylesDS2.css" />
     <script src="./Dropdown_designer2/scriptDS2.js" defer></script>
   </head>
   <body class="page">
     <nav class="menu">
       <button class="btn-top">
-        Voyages
+        Famille
         <div class="dropdown">
           <div class="bloc-links">
             <br />
-            <div class="checkB">
-              <label for="diapo">Diapos</label>
-              <input type="checkbox" id="diapo" name="diapos" value=".dia" />
-              <label for="video">Videos</label>
-              <input
-                type="checkbox"
-                id="video"
-                name="Videos"
-                value=".vid"
-                checked
-              />
+            <div class="sousMenuFam">
+              <span class="vidV" data-id=".vidf" data-ville="">Videos</span>
+              <span class="diaD" data-id=".diaf" data-ville="">Diapos</span>
+              <span class="avV" data-id=".vidf.av" data-ville=""
+                >1917_1991</span
+              >
+              <span class="enV" data-id=".vidf.en" data-ville=""
+                >1992-2020</span
+              >
+              <span class="avD" data-id=".diaf.av" data-ville="">Avant</span>
+              <span class="zgD" data-id=".diaf.zg" data-ville=""
+                >Zag Family</span
+              >
+              <ul class="vid-li-av">
+                <li data-id=".vidf.av" data-ville=".et">1917 Enez Terch</li>
+                <li data-id=".vidf.av" data-ville=".cc">1973 Régates</li>
+                <li data-id=".vidf.av" data-ville=".al">1976 Anne Lise</li>
+                <li data-id=".vidf.av" data-ville=".ma">1977 Marie</li>
+                <li data-id=".vidf.av" data-ville=".er">1978 Eric</li>
+                <li data-id=".vidf.av" data-ville=".pa">1978 81 Pantin</li>
+                <li data-id=".vidf.av" data-ville=".li">1983 Lise</li>
+                <li data-id=".vidf.av" data-ville=".ba">1984 87 Bavent</li>
+                <li data-id=".vidf.av" data-ville=".ho">1988 90 Hotot</li>
+                <li data-id=".vidf.av" data-ville=".vo">1990 91 L'Aber</li>
+                <li data-id=".vidf.av" data-ville=".ne">
+                  1992 Lise à la Neige
+                </li>
+              </ul>
+              <ul class="vid-li-en">
+                <li data-id=".vidf.en" data-ville=".irl">1992 93 Irlande</li>
+                <li data-id=".vidf.en" data-ville=".zo">
+                  1993 97 Zodiac/ Giens
+                </li>
+                <li data-id=".vidf.en" data-ville=".anp">1995 anniv Papa</li>
+                <li data-id=".vidf.en" data-ville=".jpa">
+                  1996 97 Jamie/Aquarius
+                </li>
+                <li data-id=".vidf.en" data-ville=".mbm">
+                  1997 Mariage Benoit
+                </li>
+                <li data-id=".vidf.en" data-ville=".mmy">2002 Mariage Marie</li>
+                <li data-id=".vidf.en" data-ville=".hon">
+                  2003 4 lili à Honfleur
+                </li>
+                <li data-id=".vidf.en" data-ville=".fin">2004 Noel de fin</li>
+                <li data-id=".vidf.en" data-ville=".ria">
+                  2005 Lili à Riantec
+                </li>
+                <li data-id=".vidf.en" data-ville=".dam">
+                  2006 7 Daniel Monique
+                </li>
+                <li data-id=".vidf.en" data-ville=".mar">2009 10 Margot</li>
+                <li data-id=".vidf.en" data-ville=".hil">
+                  2011 Mariage Hillary
+                </li>
+              </ul>
+              <ul class="dia-li-av">
+                <li data-id=".diaf.av" data-ville=".gu">1917 guerre de 14</li>
+                <li data-id=".diaf.av" data-ville=".ag">1918 35 grand pere</li>
+                <li data-id=".diaf.av" data-ville=".mar">1930 Mary's</li>
+                <li data-id=".diaf.av" data-ville=".ec">1940 Ecosse</li>
+                <li data-id=".diaf.av" data-ville=".dip">
+                  1944 48 Dickie père
+                </li>
+                <li data-id=".diaf.av" data-ville=".par">1945 2015 Parents</li>
+                <li data-id=".diaf.av" data-ville=".las">1948 58 Lascamps</li>
+                <li data-id=".diaf.av" data-ville=".mim">1956 65 Mimosa</li>
+                <li data-id=".diaf.av" data-ville=".chr">
+                  1958 2002 Christian
+                </li>
+              </ul>
+              <ul class="dia-li-zg">
+                <li data-id=".diaf.zg" data-ville=".an70">1970_90</li>
+                <li data-id=".diaf.zg" data-ville=".an81">1981_82</li>
+                <li data-id=".diaf.zg" data-ville=".an82">1982_87</li>
+                <li data-id=".diaf.zg" data-ville=".an87">1987_90</li>
+                <li data-id=".diaf.zg" data-ville=".an91">1991_92</li>
+                <li data-id=".diaf.zg" data-ville=".an92">1992_93</li>
+                <li data-id=".diaf.zg" data-ville=".an93">1993_2000</li>
+                <li data-id=".diaf.zg" data-ville=".an00">2000_2004</li>
+                <li data-id=".diaf.zg" data-ville=".an05">2005_2007</li>
+                <li data-id=".diaf.zg" data-ville=".an18">2018 Eric Didier</li>
+                <li data-id=".diaf.zg" data-ville=".an19">2019 Américains</li>
+              </ul>
             </div>
-            <div class="sousMenus">
-              <div>
-                <ul>
-                  <li data-id="amer" data-ville="">Amerique</li>
-                </ul>
-              </div>
-              <div>
-                <ul>
-                  <li data-id="amer" data-ville="usa">Etats Unis</li>
-                  <li data-id="amer" data-ville="mex">Mexique</li>
-                </ul>
-              </div>
-              <div>
-                <ul>
-                  <li data-id="info7" data-ville>Asie</li>
-                </ul>
-              </div>
-              <div>
-                <ul>
-                  <li data-id="info7" data-ville>Chine</li>
-                  <li data-id="info8" data-ville>Vietnam</li>
-                </ul>
-              </div>
-              <div>
-                <ul>
-                  <li data-id="info7" data-ville>Europe</li>
-                </ul>
-              </div>
-              <div>
-                <ul>
-                  <li data-id="info9" data-ville>Irlande</li>
-                  <li data-id="info7" data-ville>France Nord</li>
-                  <li data-id="info8" data-ville>France Sud</li>
-                  <li data-id="info9" data-ville>Esp Portugal</li>
-                  <li data-id="info9" data-ville>Méditerranée</li>
-                </ul>
-              </div>
-              <div>
-                <ul>
-                  <li data-id="info7" data-ville>Iles</li>
-                </ul>
-              </div>
-              <div>
-                <ul>
-                  <li data-id="info8" data-ville>France</li>
-                  <li data-id="info8" data-ville>Royaume Uni</li>
-                  <li data-id="info9" data-ville>Méditerranée</li>
-                  <li data-id="info7" data-ville>Antilles</li>
-                </ul>
-              </div>
-              <br />
-            </div>
+            <br />
           </div>
         </div>
       </button>
       <button class="btn-top">
-        Famille
+        Voyages
         <div class="dropdown">
           <div class="bloc-links">
-            <div>
-              <ul>
-                <li data-id="usa">usa</li>
-                <li data-id="info2" data-ville>links 2</li>
-                <li data-id="amer" data-ville="ny">NY</li>
+            <br />
+            <div class="sousMenus">
+              <div class="checkB">
+                <label for="diapo">Diapos</label>
+                <input type="checkbox" id="diapo" name="diapos" value=".dia" />
+                <label for="video">Videos</label>
+                <input
+                  type="checkbox"
+                  id="video"
+                  name="Videos"
+                  value=".vid"
+                  checked
+                />
+              </div>
+              <ul class="am">
+                <li data-id=".amer" data-ville="">Amerique</li>
               </ul>
-              <span data-id="global" data-ville>Global1</span>
-            </div>
-            <div>
-              <ul>
-                <li data-id="info4" data-ville>links 4</li>
-                <li data-id="info5" data-ville>links 5</li>
-                <li data-id="info6" data-ville>links 6</li>
+              <ul class="amVille">
+                <li data-id=".amer" data-ville=".usa">Etats Unis</li>
+                <li data-id=".amer" data-ville=".mex">Mexique</li>
               </ul>
-              <span data-id="global" data-ville>Global2</span>
-            </div>
-            <div>
-              <ul>
-                <li data-id="info7" data-ville>links 7</li>
-                <li data-id="info8" data-ville>links 8</li>
-                <li data-id="info9" data-ville>links 9</li>
+              <ul class="as">
+                <li data-id=".asie" data-ville="">Asie</li>
               </ul>
-              <span data-id="global" data-ville="a">Global3</span>
+              <ul class="asVille">
+                <li data-id=".asie" data-ville=".chine">Chine</li>
+                <li data-id=".asie" data-ville=".vietnam">Vietnam</li>
+              </ul>
+              <ul class="eu">
+                <li data-id=".euro" data-ville="">Europe</li>
+              </ul>
+              <ul class="euVille">
+                <li data-id=".euro" data-ville=".irl">Irlande</li>
+                <li data-id=".euro" data-ville=".frn">France Nord</li>
+                <li data-id=".euro" data-ville=".frs">France Sud</li>
+                <li data-id=".euro" data-ville=".ep">Esp Portugal</li>
+                <li data-id=".euro" data-ville=".me">Méditerranée</li>
+              </ul>
+              <ul class="il">
+                <li data-id=".iles" data-ville="">Iles</li>
+              </ul>
+              <ul class="ilVille">
+                <li data-id=".iles" data-ville=".fr">France</li>
+                <li data-id=".iles" data-ville=".ru">Royaume Uni</li>
+                <li data-id=".iles" data-ville=".me">Méditerranée</li>
+                <li data-id=".iles" data-ville=".an">Antilles</li>
+              </ul>
             </div>
+            <br />
           </div>
         </div>
       </button>
@@ -154,42 +208,32 @@
           </div>
         </div>
       </button>
+      <span class="titre"></span>
     </nav>
     <aside class="videos">
       <ul class="liens">
-        <li data-id="jfkAkRSTttk" data-ec="" class="france paris">
-          2009 Carnaval de Nice
-        </li>
+        <!-- videos voyages V -->
+        <li data-id="jfkAkRSTttk">2009 Carnaval de Nice</li>
         <li data-id="S_YphQ_wxsA">2010 Turquie</li>
-        <li data-id="zLbSu6wcTz8" data-ec="169" class="france paris">
-          2010 Frisco to Denver
-        </li>
+        <li data-id="zLbSu6wcTz8">2010 Frisco to Denver</li>
         <li data-id="FQAg0BC8FUs">2010 Denver to Chicago</li>
-        <li data-id="3V3zSkFGd60" class="france">2010 Marielle to Dickie</li>
-        <li data-id="Bosccg9hi0I" data-ec="43" class="vid amer ny">
-          2010 New York
-        </li>
+        <li data-id="3V3zSkFGd60">2010 Marielle to Dickie</li>
+        <li data-id="Bosccg9hi0I">2010 New York</li>
         <li data-id="9rWCfrI0ibk">2011 Martinique</li>
-        <li data-id="hRsY9fVv9Gc" data-ec="43" class="dia amer mex">
-          2011 Suisse en raquettes
-        </li>
-        <li data-id="tVqPPMabdRo" data-ec="43" class="mex">
-          2011 New York avec Bea & Dom
-        </li>
-        <li data-id="LqTOUsQ-HM8" class="vid amer usa">2011 Quebec</li>
+        <li data-id="hRsY9fVv9Gc">2011 Suisse en raquettes</li>
+        <li data-id="tVqPPMabdRo">2011 New York avec Bea & Dom</li>
+        <li data-id="LqTOUsQ-HM8">2011 Quebec</li>
         <li data-id="k-rncFbrN20">2012 Saint Martin</li>
-        <li data-id="-GDMBk47-2E" class="france">2013 Beijing Muraille</li>
+        <li data-id="-GDMBk47-2E">2013 Beijing Muraille</li>
         <li data-id="y-zwYwNNNFU">2013 Shaolin à Longmen</li>
         <li data-id="XSVKrpdwSEg">2013 Xian Les Guerriers</li>
         <li data-id="-FR_E2Vsyac">2013 Shanghaî</li>
-        <li data-id="G4hx5pjOY4I" class="grece cyclades">2013 Cyclades</li>
+        <li data-id="G4hx5pjOY4I">2013 Cyclades</li>
         <li data-id="fG7Yly-19dw">2014 Portugal Espagne</li>
-        <li data-id="Q16FcXE_iYY" class="cyclades paris">
-          2014 Iles Anglo Normandes
-        </li>
-        <li data-id="qepT5JwgNmQ" data-vid="V">2014 Grèce</li>
-        <li data-id="bcjkP9nCmJM" data-vid="D">2014 Soirée grecque</li>
-        <li data-id="JKfWufOnld4" data-dia="D">2015 Ile de Sein</li>
+        <li data-id="Q16FcXE_iYY">2014 Iles Anglo Normandes</li>
+        <li data-id="qepT5JwgNmQ">2014 Grèce</li>
+        <li data-id="bcjkP9nCmJM">2014 Soirée grecque</li>
+        <li data-id="JKfWufOnld4">2015 Ile de Sein</li>
         <li data-id="FM70V0IzhG8">2015 Rando Granit Rose</li>
         <li data-id="Fc-d_t1DQv0">2015 Balade à Port Launé</li>
         <li data-id="kMVnLV5KeC8">2915 Quercy</li>
@@ -219,6 +263,116 @@
         <li data-id="l5rDbHZG-W4">2019 Luberon</li>
         <li data-id="2EzlYv7YhdU">2019 Marseille</li>
         <li data-id="3dYlc5ZmCYE">2019 Cathares</li>
+        <!-- videos voyages D -->
+        <li data-id="S3syBurqDLA">2006 Mexique D</li>
+        <li data-id="_SAB5XWkZk4">2008 Crête</li>
+        <li data-id="GEt3a00EIhs">2009 Cote d'azur</li>
+        <li data-id="oVH_1nnRqSU">2009 Irlande</li>
+        <li data-id="xnAd0oNpdsQ">2010 Turquie</li>
+        <li data-id="5a0qwFTGa9k">2010 Transam</li>
+        <li data-id="YFjxQym0HP0">2011 Martinique</li>
+        <li data-id="e7WL9degn6A">2011 USA</li>
+        <li data-id="opQ9hkhRjXQ">2011 Quebec</li>
+        <li data-id="_ap5WhDUN3M">2012 Saint Martin</li>
+        <li data-id="ojqdQwaPdj8">2012 Martinique</li>
+        <li data-id="XATLdJVJDBk">2012 Iles Scilly</li>
+        <li data-id="ypl7aUt1Ft0">2012 Normandie</li>
+        <li data-id="RVl2b52NWmY">2013 Pekin</li>
+        <li data-id="DRLaOeqx3bA">2013 Shaolin</li>
+        <li data-id="Vq0-cpVBOWU">2013 Xian</li>
+        <li data-id="H-YBpSaw32s">2013 Shangaï</li>
+        <li data-id="NVhAO0xCgoU">2013 Crozon</li>
+        <li data-id="uiR4kRg8XH8">2013 Cyclades 1</li>
+        <li data-id="wixwxt6dbj0">2013 Cyclades 2</li>
+        <li data-id="8A1ud5kLvuU">2014 Portugal</li>
+        <li data-id="oq8n_LBoPIg">2014 Iles Anglo-Normandes</li>
+        <li data-id="OL2RZWGEn8g">2014 Grèce</li>
+        <li data-id="MSM2l7eellM">2015 Ile de Sein</li>
+        <li data-id="BgOo8L6XbL0">2015 Lac de Guerledan</li>
+        <li data-id="4zmG9hG7mWs">2015 Quercy</li>
+        <li data-id="tbENwo9ODrM">2015 Venise</li>
+        <li data-id="GjwmGtJ_VOI">2016 Barcelone</li>
+        <li data-id="9uVHdITFqX4">2016 Ouessant</li>
+        <li data-id="tTpn4peQNt4">2017 Saigon à Da Nang</li>
+        <li data-id="PZjzUa9cKU8">2017 Da Nang à Hué</li>
+        <li data-id="4VFbEVhzLX0">2017 Hanoi à Bac Ha</li>
+        <li data-id="mJbqiQrDfNQ">2017 Bac Ha à Hi Giang</li>
+        <li data-id="HCnvEudV50Y">2017 Hi Giang à Cao Bang</li>
+        <li data-id="1-jB5BaIOgU">2017 Cao Bang à Ha Long</li>
+        <li data-id="ICFKCfx6_EE">2018 Baléares</li>
+        <li data-id="V6rz77sOsiM">2018 Nord de la France</li>
+        <li data-id="-_PfkZtoBmU">2018 Chez Didi's Family</li>
+        <li data-id="FSvLNqZ0D7I">2018 Est de la France</li>
+        <li data-id="nPulCDT3HCo">2018 Alsace</li>
+        <li data-id="ec0_uksserQ">2018 Mexico Arrivée</li>
+        <li data-id="f_VkNYEe3AA">2018 Guanajuato</li>
+        <li data-id="FfsS45ZCjRA">2018 Hermosillo</li>
+        <li data-id="m0pluKHkr7Q">2018 Guadalajara</li>
+        <li data-id="kfcoLj1gl0w">2018 Tlaquepaque</li>
+        <li data-id="pLXupYsV3no">2018 Guanajuato 2</li>
+        <li data-id="NseuO0RoQNU">2018 Mexico Départ</li>
+        <li data-id="0CkljqZWTuI">2019 Irlande</li>
+        <li data-id="usnEVS7b6eY">2019 Drôme</li>
+        <li data-id="rYI6OdFDAtI">2019 Luberon</li>
+        <li data-id="0EwQz97hofU">2019 Marseille</li>
+        <li data-id="neWHriH-5zo">2019 Cathares</li>
+        <li data-id="0pa8_UfsIJg">2021 Coeur de France 1</li>
+        <li data-id="fJPUpAt8pp0">2021 Coeur de France 2</li>
+        <!-- familt V D-->
+        <li data-id="dJEy6kk4SzQ">1970 à 1980</li>
+        <li data-id="ISi4mZmI90Y">1981 à 1982</li>
+        <li data-id="R4jvO5K2L0I">1982 à 1987</li>
+        <li data-id="qjbQErMmbjY">1987 à 1990</li>
+        <li data-id="PTHvyBHxHX4">1991 à 1992</li>
+        <li data-id="9Kbj3Q7xb2Y">1992 à 1993 Irlande</li>
+        <li data-id="Mta_h-2F5Xk">1993 à 2000</li>
+        <li data-id="TC_0dzu0Nww">2000 à 2004</li>
+        <li data-id="8NP6CuZxWQk">2005 à 2007</li>
+        <!-- family V-->
+        <li data-id="AyEWZfM05cY">1973 Régates Cap Corse</li>
+        <li data-id="oBHmOOVXRVM">1976 Anne Lise</li>
+        <li data-id="ZDjxr4MG5XQ">1977 Marie</li>
+        <li data-id="AlLH_FH9l0U">1978 Eric Tanneguy</li>
+        <li data-id="XgVBoFbExy4">1979 Pantin</li>
+        <li data-id="egXv_MGp8O8">1980 à 1981</li>
+        <li data-id="JCW6IZ0ob3s">1982 Lise</li>
+        <li data-id="m05obQ-SNt8">1983 Premiers pas de Lise</li>
+        <li data-id="6rVJQEVNabI">1984 à 1987 Bavent</li>
+        <li data-id="Mmf9O89UyMs">1988 à 1989 Hotot</li>
+        <li data-id="4NU-3638594">1990 à 1991 Voile à l'Aber</li>
+        <li data-id="vjkLVWngmyQ">1992 Classe de Neige</li>
+        <li data-id="G1sdHeFT49E">1992 Irlande</li>
+        <li data-id="CdaHOov0XGc">1993 Meadowlands</li>
+        <li data-id="-1oFaHCFW1o">1993 à 1994 Zodiac et Giens</li>
+        <li data-id="u6XMHFTHOJk">1995 Anniversaire de Papa</li>
+        <li data-id="MAEc_ieNnFg">1996 à 1997 Jamie, Persée</li>
+        <li data-id="wDL4ZjmiInc">1997 Mariage de Benoît & Michele</li>
+        <li data-id="SAgwaaIMaSM">2002 Mariage de Marie & Yann</li>
+        <li data-id="2pQ3T2turKI">2003 à 2004 Lili à Honfleur</li>
+        <li data-id="6GuGSYawd5A">2004 Noël de fin</li>
+        <li data-id="DAku5K2y6Lc">2005 Lili à Riantec</li>
+        <li data-id="w6jPs4WuiGs">2006 à 2007 Danièle, Monique</li>
+        <!-- marzagou D -->
+        <li data-id="7ET6EIOqtuY">2009 à 2010</li>
+        <li data-id="1e1M_49IoPE">2011 Résumé</li>
+        <li data-id="kP8RCmg9Xew">2011 Hillary Dan's wedding</li>
+        <li data-id="rB9rSfSMWV4">2019 Cousins Américains</li>
+        <!-- marzagou V -->
+        <li data-id="JIe9vPY3-20">2018 Eric Didier</li>
+        <li data-id="xM4RqDRqHxs">2019 Cousins américains</li>
+        <!-- avant D -->
+        <li data-id="ZJzPWn7XIMU">1917 Guerre 14 18</li>
+        <li data-id="pBWwh2YR9gY">1918 à 1935 Avant Guerre</li>
+        <li data-id="vkZFkNQlC5w">1918 Avions</li>
+        <li data-id="18R4ae0a7To">1930 les Mary's</li>
+        <li data-id="L5LH44cXSpY">1940 Gonzague en Ecosse</li>
+        <li data-id="aEkR_SJwa1A">1944 à 1948 Dickie Père</li>
+        <li data-id="WBBWQDsuz7M">1947 à 2015 Parents</li>
+        <li data-id="pZ_CEYB9lC4">1948 à 1958 Lascamps</li>
+        <li data-id="m-9o0tQRh34">1956 à 1965 Mimosas</li>
+        <li data-id="0VOHWKq-mNA">1958 à 2002 Christian</li>
+        <!-- avant V -->
+        <li data-id="n4E9lKV9Sd4">1917 Hydravions à l'Ile Wrach</li>
       </ul>
     </aside>
     <main class="enveloppe">
