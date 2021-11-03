@@ -37,7 +37,7 @@ const litElements = (listEl, blocLink) => {
       ecVideos.innerHTML = "";
       /* prépare les classes à chercher à partir des dataset des menus */
       /* si typevid ="", les classes .vidf et .diaf sont intégrées aux dataset des familles Id */
-      console.log(el.innerHTML);
+
       const titre = document.querySelector(".titre");
       const aff = afficheLiens(
         typeVid(blocLink) + el.dataset.id + el.dataset.ville
@@ -51,14 +51,17 @@ const litElements = (listEl, blocLink) => {
 };
 /* ===dimensions frames: compare le ratio aux dim de la fenetre et affiche en fonction du ratio 43 ou 169 des videos YT, indiqué via le dataset ec (passé via rat)*/
 
-const reduct = 0.95;
+const reduct = 1;
 const dimZoom = (el) => {
   let ratioI = 16 / 9;
   /* si ratio 43 dans la liste passer à 4/3*/
   if (el.dataset.ec === "43") ratioI = 4 / 3;
-  /* ratio de la fenetre */
-  const wl = window.innerWidth;
-  const wh = window.innerHeight;
+  /* ratio de la fenetre ecvideos - dimensions d l'ombre des iframes YT*/
+
+  const wl = ecVideos.clientWidth - 5;
+  const wh = ecVideos.clientHeight -5;
+  
+
   const ratioW = wl / wh;
   /* si on compare les ratios,il faut inverser et definir d'abord la hauteur */
   el.style.width = wl * reduct + "px";

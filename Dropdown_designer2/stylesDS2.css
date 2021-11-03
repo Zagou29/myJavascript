@@ -14,7 +14,7 @@ body {
   display: grid;
   height: 100vh;
   grid-template-columns: auto;
-  grid-template-rows: 38px 0 1fr auto;
+  grid-template-rows: 38px 0 1fr;
   grid-template-areas:
     "menu"
     "video"
@@ -41,7 +41,8 @@ body {
 .enveloppe {
   grid-area: main;
   position: relative;
-  padding: 10px 0;
+  /* padding: 5px 0; */
+  margin:5px 0;
 }
 .ecranYT {
   position: relative;
@@ -51,7 +52,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.479);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.479);
 }
 .dropdown {
   position: absolute;
@@ -118,7 +119,7 @@ a:hover {
 
 .ecranVideos {
   overflow-y: scroll;
-  height: calc(100vh - 58px);
+  height: calc(100vh - 48px);
 }
 a {
   text-decoration: none;
