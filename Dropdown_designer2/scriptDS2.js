@@ -90,6 +90,7 @@ const afficheLiens = (param) => {
       </div>
       </br>`
     );
+    console.log(vid.dataset.ec)
   });
   /* rajoute l'icone de retour Home en fin de page videos si plus d'une affichée */
   if (ecVideos.innerHTML && lien.length > 1) {
