@@ -96,7 +96,7 @@ const afficheLiens = (param) => {
     ecVideos.insertAdjacentHTML(
       "beforeend",
       `<button onclick="toTop()" class="retour"><img
-            src="./pictures/retour.png"
+            src="/Pictures/retour.png"
             alt="back to top"
           /></button>`
     );
