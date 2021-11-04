@@ -19,7 +19,7 @@ body {
     "menu"
     "video"
     "main";
-  background: url("/myJavascript/Pictures/LesAnges.jpg") top;
+  background: url("./Pictures/LesAnges.jpg") top;
   background-repeat: no-repeat;
 }
 .menu {
