@@ -19,7 +19,7 @@ body {
     "menu"
     "video"
     "main";
-  background: url("/Images/LesAnges.jpg") top;
+  background: url("/pictures/LesAnges.jpg") top;
   background-repeat: no-repeat;
 }
 .menu {
@@ -42,7 +42,7 @@ body {
   grid-area: main;
   position: relative;
   /* padding: 5px 0; */
-  margin:5px 0;
+  margin: 5px 0;
 }
 .ecranYT {
   position: relative;

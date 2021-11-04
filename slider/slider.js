@@ -1,11 +1,11 @@
 let slide = new Array(
-  "/Images/Diapos-20.jpg",
-  "/Images/Diapos-1.jpg",
-  "/Images/Diapos-10.jpg",
-  "/Images/Diapos-11.jpg",
-  "/Images/Diapos-12.jpg",
-  "/Images/Diapos-13.jpg",
-  "/Images/Diapos-14.jpg"
+  "/pictures/Diapos-20.jpg",
+  "/pictures/Diapos-1.jpg",
+  "/pictures/Diapos-10.jpg",
+  "/pictures/Diapos-11.jpg",
+  "/pictures/Diapos-12.jpg",
+  "/pictures/Diapos-13.jpg",
+  "/pictures/Diapos-14.jpg"
 );
 let numero = 0;
 
@@ -19,7 +19,7 @@ const prec = document.getElementById("precedent");
 const suiv = document.getElementById("suivant");
 /* click fleche Gauche => Précédent */
 prec.addEventListener("click", (e) => {
-    ChangeSlide(-1);
+  ChangeSlide(-1);
 });
 /* click fleche Gauche => Suivant */
 suiv.addEventListener("click", () => {
@@ -30,8 +30,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") {
     ChangeSlide(-1);
   }
-    if (e.key === "ArrowRight") {
-        ChangeSlide(1)
-    }
+  if (e.key === "ArrowRight") {
+    ChangeSlide(1);
+  }
 });
-

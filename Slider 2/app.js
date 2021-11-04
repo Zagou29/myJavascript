@@ -17,7 +17,7 @@ const img__slider = document.querySelectorAll(".slider img");
 let precedent = document.querySelector(".precedent");
 let suivant = document.querySelector(".suivant");
 
-let enleverActiveImages = () => {
+let enleverActivepictures = () => {
   img__slider.forEach((el) => {
     el.classList.remove("active");
   });
@@ -35,35 +35,35 @@ let changeSlide = (sens, tableau) => {
 };
 
 suivant.addEventListener("click", () => {
-  enleverActiveImages();
+  enleverActivepictures();
   img__slider[changeSlide(1, img__slider)].classList.add("active");
   dimZoom(document.querySelector(".active"));
 });
 precedent.addEventListener("click", () => {
-  enleverActiveImages();
+  enleverActivepictures();
   img__slider[changeSlide(-1, img__slider)].classList.add("active");
-  dimZoom(document.querySelector(".active"))
+  dimZoom(document.querySelector(".active"));
 });
 let inter = 1;
 document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") {
-    enleverActiveImages();
+    enleverActivepictures();
     let num = changeSlide(1, img__slider);
     img__slider[num].classList.add("active");
     dimZoom(document.querySelector(".active"));
   }
   if (e.key === "ArrowLeft") {
-    enleverActiveImages();
+    enleverActivepictures();
     img__slider[changeSlide(-1, img__slider)].classList.add("active");
-      dimZoom(document.querySelector(".active"));
+    dimZoom(document.querySelector(".active"));
   }
   if (e.key === " ") {
     console.log(inter);
     if (inter === 1) {
       inter = setInterval(() => {
-        enleverActiveImages();
+        enleverActivepictures();
         img__slider[changeSlide(1, img__slider)].classList.add("active");
-          dimZoom(document.querySelector(".active"));
+        dimZoom(document.querySelector(".active"));
       }, 500);
     } else {
       clearInterval(inter);

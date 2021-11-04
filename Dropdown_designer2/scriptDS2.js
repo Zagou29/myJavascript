@@ -59,8 +59,7 @@ const dimZoom = (el) => {
   /* ratio de la fenetre ecvideos - dimensions d l'ombre des iframes YT*/
 
   const wl = ecVideos.clientWidth - 5;
-  const wh = ecVideos.clientHeight -5;
-  
+  const wh = ecVideos.clientHeight - 5;
 
   const ratioW = wl / wh;
   /* si on compare les ratios,il faut inverser et definir d'abord la hauteur */
@@ -97,7 +96,7 @@ const afficheLiens = (param) => {
     ecVideos.insertAdjacentHTML(
       "beforeend",
       `<button onclick="toTop()" class="retour"><img
-            src="./Images/retour.png"
+            src="./pictures/retour.png"
             alt="back to top"
           /></button>`
     );
