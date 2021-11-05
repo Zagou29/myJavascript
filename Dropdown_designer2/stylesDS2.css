@@ -111,7 +111,7 @@ a {
   width: auto;
 }
 .bloc-links li:hover,
-span:hover,
+.bloc-links span:hover,
 a:hover {
   color: green;
   text-decoration: underline;
@@ -227,5 +227,11 @@ a {
 .titre {
   font-size: large;
   align-self: flex-end;
+  text-align: right;
+  padding-right: 20px;
+  font-weight: bold;
+}
+.vidTitre {
   text-align: center;
+  color: blue;
 }

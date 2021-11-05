@@ -59,7 +59,7 @@ const dimZoom = (el) => {
   /* ratio de la fenetre ecvideos - dimensions d l'ombre des iframes YT*/
 
   const wl = ecVideos.clientWidth - 5;
-  const wh = ecVideos.clientHeight - 5;
+  const wh = ecVideos.clientHeight - 20;
 
   const ratioW = wl / wh;
   /* si on compare les ratios,il faut inverser et definir d'abord la hauteur */
@@ -79,7 +79,8 @@ const afficheLiens = (param) => {
   lien.forEach((vid) => {
     ecVideos.insertAdjacentHTML(
       "beforeend",
-      ` <div class="ecranYT" data-ec ="${vid.dataset.ec}">
+      ` <span class="vidTitre" >${vid.innerText} </span>
+      <div class="ecranYT" data-ec ="${vid.dataset.ec}">
       <iframe
       class="lect"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
