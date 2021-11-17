@@ -52,7 +52,7 @@ html {
   text-align: justify;
   background-color: darkgray;
   overflow: auto;
-  border: 2px solid red;
+  
 }
 .resizer {
   position: absolute;
@@ -72,12 +72,12 @@ html {
   height: 100%;
   background: coral;
   transform: scaleX(0);
-  opacity: 0;
+  /* opacity: 0; */
   transition: 0.3s;
 }
 .resizer:hover::after {
   transform: scaleX(0.2);
-  opacity: 1;
+  /* opacity: 1; */
 }
 footer{
   grid-area: "ft";

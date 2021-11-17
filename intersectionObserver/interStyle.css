@@ -1,0 +1,10 @@
+#box{
+    width:200px;
+    height: 200px;
+    background:red;
+}
+.containerx{
+    overflow-y: auto;
+    height:300px;
+    border:1px dotted grey; 
+}
