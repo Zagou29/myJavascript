@@ -7,13 +7,17 @@ let dimZoom = (el) => {
   /* si on compare les ratios,il faut inverser et definir d'abord la hauteur */
   el.style.width = 95 + "vw";
   el.style.height = "auto";
+
   if (ratioW > ratioI) {
     el.style.width = "auto";
     el.style.height = 95 + "vh";
   }
+  slider_cont.style.top= (window.innerHeight - el.height) / 2 +"px";
+  console.log(window.innerHeight, el.height)
 };
 
 const img__slider = document.querySelectorAll(".slider img");
+const slider_cont = document.querySelector(".slider")
 let precedent = document.querySelector(".precedent");
 let suivant = document.querySelector(".suivant");
 

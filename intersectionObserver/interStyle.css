@@ -1,10 +1,55 @@
-#box{
-    width:200px;
-    height: 200px;
-    background:red;
+body{
+  --lignes : 100px;
 }
-.containerx{
-    overflow-y: auto;
-    height:300px;
-    border:1px dotted grey; 
+#box {
+  width: 200px;
+  height: 200px;
+  background: red;
+}
+
+.container {
+  position: fixed ;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  background-color: chartreuse;
+  height: 100vh;
+  overflow-y: scroll;
+}
+.car,
+.bus {
+  border-radius: 20px;
+  background-color: yellow;
+  font-size: 3rem;
+  padding: 1rem;
+  transform: translateX(200px);
+  /* visibility: hidden; */
+  opacity: 0;
+  transition: opacity 300ms;
+  
+}
+.car.show,
+.bus.show {
+  transform: translateX(0);
+  transition:transform 300ms;
+  /* visibility: visible; */
+  opacity: 1;
+  background-color: wheat;
+}
+.hr,
+.hr1 {
+  position: fixed;
+  height: 1px;
+  width: 100%;
+  background-color: tomato;
+  left: 0;
+  z-index: 10;
+}
+.hr1 {
+  bottom: var(--lignes);
+}
+.hr {
+  top: var(--lignes);
 }

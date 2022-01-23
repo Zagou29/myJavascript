@@ -1,0 +1,34 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.envel {
+  background-color: black;
+  display: flex;
+  height:100vh; 
+  align-items: center;
+}
+.box {
+  overflow-x: scroll;
+  backdrop-filter:blur(0.5rem);
+  display: grid;
+  width: 100vw;
+  scroll-snap-type: x mandatory;
+  grid-template-columns:repeat(200,1fr);
+  margin: auto;
+ 
+}
+.image {
+  
+  scroll-snap-align: start;
+  width:inherit;
+  aspect-ratio: 16/9;
+  object-fit: contain;
+  background-color:inherit;
+}
+
