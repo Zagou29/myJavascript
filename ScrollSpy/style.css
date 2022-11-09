@@ -1,0 +1,51 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  color: blue;
+  padding: 0 2rem;
+  position: relative;
+  height: 100vh;
+  display:flex;
+  flex-direction: column;
+}
+main{
+  overflow: auto;
+  scroll-behavior: smooth;
+   
+}
+nav {
+
+  background-color: white;
+  width: 100%;
+  padding: 1rem;
+  top: 10px;
+}
+a {
+  font-size: 1.5rem;
+  display: inline-block;
+  padding: 0 0.5rem;
+  text-decoration: none;
+}
+a.active,
+a:hover {
+  color: green;
+  text-decoration: underline;
+}
+
+section:nth-child(1) > p {
+  background-color: antiquewhite;
+}
+section:nth-child(2) > p {
+  background-color: rgb(218, 250, 215);
+}
+section:nth-child(3) > p {
+  background-color: rgb(215, 231, 250);
+}
+section:nth-child(4) > p {
+  background-color: rgb(250, 215, 242);
+}

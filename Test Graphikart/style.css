@@ -1,0 +1,27 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+  height: 100vh;
+}
+
+.forme {
+  display: flex;
+  
+  border: 1px solid black;
+}
+label {
+  display: block;
+}
+button {
+  width: 9rem;
+}
+span {
+  padding-left: 1rem;
+}
