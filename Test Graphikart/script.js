@@ -1,11 +1,11 @@
-const forme = document.querySelector(".forme");
+/* const forme = document.querySelector(".forme");
 const pren = document.querySelector(".pren");
 const nom = document.querySelector(".nom");
 const nomb = document.querySelector(".nomb");
 const prenom = document.querySelector("#prenom");
 const nm = document.querySelector("#nom");
 const nombre = document.querySelector("#nombre");
-let obj = {};
+let obj = {}; */
 // const handleForm = (e) => {
 //   // e.preventDefault();
 //   console.log("forme");
@@ -146,30 +146,302 @@ console.log(tabFreq); */
 
 /* const a= {a : 2} 
 console.log(a) */
-const moye = (tab) => tab?.reduce((a, c) => a + c) / tab?.length;
+/* const moye = (tab) => tab?.reduce((a, c) => a + c) / tab?.length;
 class Students {
   ecole = "Kerichen";
   ville = "nantes";
+  #notes=['']
   constructor(prenom, nom) {
-    this.surname = prenom;
-    this.name = nom;
+    this.prenom = prenom;
+    this.nom = nom;
   }
-  set notes (v) {
-    if (Array.isArray(v)) {this._notes = v;}
+  set notes(v) {
+    if (Array.isArray(v)) {
+      this.#notes = v;
+    }
+  } 
+  get nom_() {
+    return `${this.nom} `;
   }
-  get nom(){
-    return `${this.surname}`
-  }
+  static moy = 10;
+
   canPass() {
-    return moye(this._notes);
+    return [parseInt(moye(this.#notes)), moye(this.#notes) >= Students.moy];
   }
 }
-const john = new Students("john", "doe");
+class GoodStudent extends Students {
+  constructor(p, n, notes) {
+    super(p, n);
+    this.notes = notes;
+  }
+
+  set moy(v) {
+    this.moyenne = v;
+  }
+  get nom_() {
+    return "super  " + super.nom_;
+  }
+  canPass() {
+    return super.canPass();
+  }
+}
+const john = new GoodStudent("john", "doe", [19, 12, 15, 8, 16]);
 const eric = new Students("eric", "depoul");
 
-eric.notes = [12, 10, 14];
-john.notes = [19, 12];
+eric.notes = [2, 2];
+// john.notes = [19, 12, 15, 8, 16];
 console.log(john.canPass());
 console.log(eric.canPass());
 eric.ville = "brest";
-eric.name
+
+console.log(john.nom_, eric.nom_);
+console.log(john);
+john.moy = 674;
+console.log(john.nom_, eric.nom_);
+john.canPass(); */
+/* 
+class Rectangle {
+  constructor(width, height) {
+    if (width <= 0 || height <= 0) {
+      throw new Error("Saisie incorrecte");
+    }
+    this.width = width;
+    this.height = height;
+  }
+  get perimeter() {
+    return (this.height + this.width) * 2;
+  }
+  get isValid() {
+    return this.height > 0 && this.width > 0;
+  }
+  isBiggerThan(shape) {
+    return this.perimeter >= shape.perimeter;
+  }
+}
+class Square extends Rectangle {
+  constructor(width) {
+    super(width, width);
+  }
+}
+const saisie = (entree) => {};
+
+try {
+  const r = new Rectangle(saisie("Largeur"), saisie("Hauteur"));
+  const c = new Square(saisie("Coté"));
+  console.log(r, r.perimeter, r.isValid);
+  console.log(c, r.perimeter, c.perimeter, c.isValid);
+  console.log(c.isBiggerThan(r));
+} catch (e) {
+  console.log(e);
+}
+ */
+// books
+/* class Book {
+  #page = 1;
+  constructor(title, pages) {
+    this.title = title;
+    this.pages = pages;
+  }
+  get page() {
+
+    return this.#page;
+  }
+  nextPage() {
+    if (this.#page < this.pages) this.#page++;
+  }
+  close() {
+    this.#page = 1;
+  }
+}
+
+class Library {
+  #books = [];
+  adBook(book) {
+    this.#books.push(book);
+  }
+  adBooks(books) {
+    books.forEach((b) => this.adBook(b));
+  }
+  get libr() {
+    return this.#books;
+  }
+  findBookByLetter(l) {
+    const ret= this.#books.filter(bo => bo.title.at(0).toLowerCase()=== l.toLowerCase())
+    return ret.map(bo => bo.title)
+    
+  }
+}
+const lib = new Library();
+
+const b = new Book("Seigneur des Anneaux", 200);
+const cb = new Book("Surface", 256);
+
+console.log(b.page);
+b.nextPage();
+b.nextPage();
+
+console.log(b.page);
+lib.adBook(b);
+lib.adBook(cb);
+lib.adBooks([
+  new Book("Read Player One", 200),
+  new Book("oui oui", 40),
+  new Book("Sillage", 100),
+]);
+
+console.log(lib.findBookByLetter("s")); */
+/* const tab = [1, 34, 1, 45, 56, 1, 34, 4, 67, 8];
+const res = tab.filter((v, i, ar) => ar.indexOf(v) === i);
+const red = (tab) => tab.filter((v, i, ar) => ar.indexOf(v) === i);
+console.log(res); // quickest
+console.log([...new Set(tab)]); //slowest
+console.log([...tab].reverse());
+const [t1, , , t2, ...rest] = red([...tab]);
+console.log(t1, t2, rest);
+const person = {
+  nom: "depoul",
+  prenom: "zag",
+};
+const nouvPerson = { ...person, age: 22, nom: "cariou" };
+const age = 19;
+const message = age <= 18 ? "mineur" : "majeur";
+console.log(message);
+
+*/
+/* const wait = (duree) => {
+  const t = Date.now();
+  while (Date.now() - t < duree) {
+
+  }
+};
+console.log("bang");
+setTimeout(()=>
+console.log("Zuuut"),4000)
+wait(2000);
+console.log("boom");
+ */
+/* const hello = (b) => {
+  let a = 1;
+  return (b) => {
+    a++;
+    console.log(a+b)
+    debugger
+  };
+};
+const f = hello();
+f(45)
+f(67)
+f(67)
+f(0) */
+
+/* const g= ()=>{
+  let v = parseInt(Math.random() *100);
+  return ()=> console.log(v)
+}
+let f= g()
+const arr= [g(),g(),g()]
+ */
+/* let myName = "zagou";
+printName = () => {
+
+    console.log(myName);
+  };
+
+
+printName();
+
+const fnExt=(extVar)=>{
+  return function fnInt (intVar){
+    const letVar = "haha"
+    console.log('Var Ext: '+ extVar)
+    console.log('Var Int: '+ intVar)
+    console.log('let Int: '+ letVar)
+  }
+}
+const nouvFn =fnExt('Exterieur')
+nouvFn("dedans") */
+/* const creeCompteur =()=>{
+  let n=0
+  const incremente = ()=>{
+    n++;
+    console.log(n)
+  
+  }
+  return incremente
+}
+ let add = creeCompteur()
+ console.dir(add)
+add()
+add() */
+
+/* const p = new Promise((resolve, reject) => {
+  resolve("zagou");
+  reject("rejeté");
+});
+
+const waitM = (duree) => {
+  return new Promise((resolve, reject) =>
+    setTimeout(() => resolve(duree), duree)
+  );
+};
+const waitE = (duree) => {
+  return new Promise((resolve, reject) =>
+    setTimeout(() => reject(duree), duree)
+  );
+};
+// waitM(2000)
+//   .then((n) => {
+//     console.log(n);
+//     return waitM(1000);
+//   })
+//   .then((n) => {
+//     console.log(n);
+//     return waitE(2000);
+//   })
+//   .catch((e) => null);
+
+const fonctAsync = async () => {
+  let res = await waitM(2000);
+  console.log(`résultat ${res}`);
+  res = await waitM(1000);
+  console.log(`résultat ${res}`);
+  res = await waitM(3000);
+  console.log(`résultat ${res}`);
+  res = await waitM(1000);
+  console.log(`résultat ${res}`);
+  return "et BOOM";
+};
+// fonctAsync()
+//   .then((n) => {
+//     console.log(n);
+//     return "renvoi 2";
+//   })
+//   .then((n) => console.log(n));
+
+// Promise.any([waitE(1000), waitM(2000),waitM(3000)])
+//   .then(console.log)
+//   .catch((n) => console.error);
+
+// p .then((r) => {
+//   console.log(r);
+//   return "autre chose";
+// })
+// .then((n) => {console.log(n)
+//   // throw new Error("perdu")
+//   return " 3eme"})
+//   .then((n=> console.log(n)))
+//   .catch((e) => console.log("echec", e))
+//   .finally(()=> console.log("ca c'est fait"))
+
+const pr = new Promise((r) => {
+  console.log("hello");
+  r(36);
+});
+pr.then((n) => console.log(n));
+ */
+
+Promise.all([
+  fetch("https://jsonplaceholder.typicode.com/users/?_limit=5&_delay=2000"),
+  fetch("https://jsonplaceholder.typicode.com/posts/?_limit=3"),
+])
+ .then(r => console.log(r));
