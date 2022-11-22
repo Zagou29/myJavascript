@@ -1,4 +1,4 @@
-import { createElement } from "../fonctions/dom.js";
+import { createElement,cloneTemplate   } from "../fonctions/dom.js";
 
 /**
  * @typedef {object} Todo
@@ -8,9 +8,9 @@ import { createElement } from "../fonctions/dom.js";
  *
  */
 export class TodoList {
-  /** @type {Todo[]} */
+  /** @type {Todo[]} objet avec tous les todos (id,title,completed)*/
   #todos = [];
-  /** @type {HTMLUListelement} */
+  /** @type {HTMLUListelement}li créée a partir des todos */
   #listElement = [];
   /**
    *
@@ -24,30 +24,21 @@ export class TodoList {
    * @param {HTMLelement} element
    */
   appendTo(element) {
-    element.innerHTML = `<form class="d-flex pb-4">
-            <input required="" class="form-control" type="text" placeholder="nouvelle tache ..." name="title"
-                data-com.bitwarden.browser.user-edited="yes">
-            <button class="btn btn-primary">Ajouter</button>
-        </form>
-        <main>
-            <div class="btn-group mb-4" role="group">
-                <button type="button" class=" btn btn-outline-primary active" data-filter="all">Toutes</button>
-                <button type="button" class=" btn btn-outline-primary" data-filter="todo">A faire</button>
-                <button type="button" class=" btn btn-outline-primary" data-filter="done">Faites</button>
-            </div>
-            
-            <ul class="list-group">
-            </ul>
-        </main>`;
+    /**
+     * @type {HTMLelements}input et boutons tri
+     */
+    element.append(cloneTemplate("todolist-layout"));
     this.#listElement = element.querySelector(".list-group");
+   /** rajoute chaque li dans list-group*/
     for (let todo of this.#todos) {
-      const t = new TodoListItem(todo);
+      const t = new TodoListItem(todo); 
       this.#listElement.append(t.elementItem);
     }
+    /**saisie d'un todo dans form et creation d'un TodoListItem */
     element
       .querySelector("form")
       .addEventListener("submit", (e) => this.#onSubmit(e));
-
+/**tri des todos avec  tout, a faire, fait */
     element.querySelectorAll(".btn-group button").forEach((button) => {
       button.addEventListener("click", (e) => this.#toggleFilter(e));
     });
@@ -62,7 +53,6 @@ export class TodoList {
     const form = e.currentTarget;
     const title = new FormData(form).get("title").toString().trim();
     if (title === "") return;
-    console.log(title);
     const todo = {
       id: Date.now(),
       title,
@@ -90,10 +80,9 @@ export class TodoList {
     } else if (filter === "done") {
       this.#listElement.classList.add("hide-todo");
       this.#listElement.classList.remove("hide-completed");
-    }else{
-        this.#listElement.classList.remove("hide-todo");
-        this.#listElement.classList.remove("hide-completed");
-
+    } else {
+      this.#listElement.classList.remove("hide-todo");
+      this.#listElement.classList.remove("hide-completed");
     }
   }
 }
@@ -107,31 +96,22 @@ class TodoListItem {
    */
   constructor(todo) {
     const id = `todo-${todo.id}`;
-    const li = createElement("li", {
-      class: "todo list-group-item d-flex align-items-center",
-    });
+    const li = cloneTemplate("todolist-item").firstElementChild;
+   
     this.#element = li;
-    const checkbox = createElement("input", {
-      type: "checkbox",
-      class: "form-check-input",
-      id,
-      checked: todo.completed ? "" : null,
-    });
-    const label = createElement("label", {
-      class: "ms-2 form-check-label",
-      for: id,
-    });
+    const checkbox = li.querySelector('input')
+    checkbox.setAttribute('id',id)
+    if(todo.completed)
+    {checkbox.setAttribute('checked','')}
+    const label = li.querySelector('label')
+    label.setAttribute('for',id)
+    
     label.innerText = todo.title;
-    const button = createElement("button", {
-      class: "ms-auto btn btn-danger btn-sm",
-    });
-    button.innerHTML = `<i class="bi-trash"></i>`;
-    li.append(checkbox);
-    li.append(label);
-    li.append(button);
+    const button =li.querySelector('button')
+    /**rajoute la classlist is-completed */
     this.#toggle(checkbox);
 
-    button.addEventListener("click", (e) => this.bin(e));
+    button.addEventListener("click", (e) => this.efface(e));
     checkbox.addEventListener("change", (e) => this.#toggle(e.currentTarget));
   }
   /**
@@ -140,7 +120,8 @@ class TodoListItem {
   get elementItem() {
     return this.#element;
   }
-  bin(e) {
+  /**efface l'item en cours */
+  efface(e) {
     e.preventDefault();
     this.#element.remove();
   }
