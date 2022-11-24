@@ -1,4 +1,4 @@
-import { createElement,cloneTemplate   } from "../fonctions/dom.js";
+import { createElement, cloneTemplate } from "../fonctions/dom.js";
 
 /**
  * @typedef {object} Todo
@@ -29,18 +29,26 @@ export class TodoList {
      */
     element.append(cloneTemplate("todolist-layout"));
     this.#listElement = element.querySelector(".list-group");
-   /** rajoute chaque li dans list-group*/
+    /** rajoute chaque li dans list-group*/
     for (let todo of this.#todos) {
-      const t = new TodoListItem(todo); 
-      this.#listElement.append(t.elementItem);
+      const t = new TodoListItem(todo);
+      this.#listElement.append(t.returnItem);
     }
     /**saisie d'un todo dans form et creation d'un TodoListItem */
     element
       .querySelector("form")
       .addEventListener("submit", (e) => this.#onSubmit(e));
-/**tri des todos avec  tout, a faire, fait */
+    /**tri des todos avec  tout, a faire, fait */
     element.querySelectorAll(".btn-group button").forEach((button) => {
       button.addEventListener("click", (e) => this.#toggleFilter(e));
+    });
+    this.#listElement.addEventListener("delete", ({ detail: todou }) => {
+      this.#todos = this.#todos.filter((t) => t !== todou);
+      console.log(this.#todos);
+    });
+    this.#listElement.addEventListener("toggle", ({ detail: todou }) => {
+      todou.completed = !todou.completed;
+      console.log(this.#todos);
     });
   }
   /**
@@ -58,8 +66,10 @@ export class TodoList {
       title,
       completed: false,
     };
+    this.#todos.push(todo);
+
     const item = new TodoListItem(todo);
-    this.#listElement.prepend(item.elementItem);
+    this.#listElement.prepend(item.returnItem);
     form.reset();
   }
   /**
@@ -91,23 +101,26 @@ export class TodoList {
  */
 class TodoListItem {
   #element;
+  #todo;
   /** @type{Todo}
    *
    */
   constructor(todo) {
+    this.#todo = todo;
     const id = `todo-${todo.id}`;
     const li = cloneTemplate("todolist-item").firstElementChild;
-   
+
     this.#element = li;
-    const checkbox = li.querySelector('input')
-    checkbox.setAttribute('id',id)
-    if(todo.completed)
-    {checkbox.setAttribute('checked','')}
-    const label = li.querySelector('label')
-    label.setAttribute('for',id)
-    
+    const checkbox = li.querySelector("input");
+    checkbox.setAttribute("id", id);
+    if (todo.completed) {
+      checkbox.setAttribute("checked", "");
+    }
+    const label = li.querySelector("label");
+    label.setAttribute("for", id);
+
     label.innerText = todo.title;
-    const button =li.querySelector('button')
+    const button = li.querySelector("button");
     /**rajoute la classlist is-completed */
     this.#toggle(checkbox);
 
@@ -117,12 +130,18 @@ class TodoListItem {
   /**
    * @return {HTMLelement}
    */
-  get elementItem() {
+  get returnItem() {
     return this.#element;
   }
   /**efface l'item en cours */
   efface(e) {
     e.preventDefault();
+    const event = new CustomEvent("delete", {
+      detail: this.#todo,
+      bubbles: true,
+      cancelable: true,
+    });
+    this.#element.dispatchEvent(event);
     this.#element.remove();
   }
   /**
@@ -133,5 +152,11 @@ class TodoListItem {
     checkbox.checked
       ? this.#element.classList.add("is-completed")
       : this.#element.classList.remove("is-completed");
+    // this.#todo.completed = checkbox.checked ? true : false;
+    const event = new CustomEvent("toggle", {
+      detail: this.#todo,
+      bubbles: true,
+    });
+    this.#element.dispatchEvent(event);
   }
 }

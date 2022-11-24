@@ -443,5 +443,13 @@ pr.then((n) => console.log(n));
 Promise.all([
   fetch("https://jsonplaceholder.typicode.com/users/?_limit=5&_delay=2000"),
   fetch("https://jsonplaceholder.typicode.com/posts/?_limit=3"),
-])
- .then(r => console.log(r));
+]).then((r) => console.log(r));
+
+const someComplexValue = (() => {
+  const a = 20;
+  const b = 10;
+  return a > b ? a * b : a / b;
+
+  return b / a;
+})();
+console.log(someComplexValue)

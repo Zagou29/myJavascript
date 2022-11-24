@@ -2,9 +2,9 @@ import { TodoList } from "./components/TodoList.js";
 import { fetchJSON } from "./fonctions/api.js";
 import { createElement } from "./fonctions/dom.js";
 try {
-  const todos = await fetchJSON(
+ const todos = await fetchJSON(
     "https://jsonplaceholder.typicode.com/todos?_limit=10"
-  );
+  ); 
 
   const list = new TodoList(todos);
   list.appendTo(document.querySelector("#todolist"));
