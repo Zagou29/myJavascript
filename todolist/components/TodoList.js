@@ -1,4 +1,4 @@
-import { createElement, cloneTemplate } from "../fonctions/dom.js";
+import { cloneTemplate } from "../fonctions/dom.js";
 
 /**
  * @typedef {object} Todo
@@ -8,25 +8,26 @@ import { createElement, cloneTemplate } from "../fonctions/dom.js";
  *
  */
 export class TodoList {
-  /** @type {Todo[]} objet avec tous les todos (id,title,completed)*/
+  /** @type {Todos[]} objet avec tous les todos (id,title,completed)*/
   #todos = [];
   /** @type {HTMLUListelement}li créée a partir des todos */
   #listElement = [];
   /**
-   *
+   *construit une liste de todos
    * @param {Todo[]} todos
    */
   constructor(todos) {
     this.#todos = todos;
   }
   /**
-   *
+   *methode pour afficher les todos daans le dom grace à des <li>
    * @param {HTMLelement} element
    */
   appendTo(element) {
     /**
      * @type {HTMLelements}input et boutons tri
      */
+    //installe le formulaire de saisie et les boutons de tri
     element.append(cloneTemplate("todolist-layout"));
     this.#listElement = element.querySelector(".list-group");
     /** rajoute chaque li dans list-group*/
