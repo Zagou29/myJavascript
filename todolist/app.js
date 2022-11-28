@@ -1,13 +1,17 @@
+"use scrict"
 import { TodoList } from "./components/TodoList.js";
 import { fetchJSON } from "./fonctions/api.js";
 import { createElement } from "./fonctions/dom.js";
 try {
+  /** va charger les todos */
  const todos = await fetchJSON(
-    "https://jsonplaceholder.typicode.com/todos?_limit=10"
+    "/todolist/json.json"
   ); 
-
+console.log(todos)
+/** va affecter les todos via le constructor*/
   const list = new TodoList(todos);
-  list.appendTo(document.querySelector("#todolist"));
+  /** va gerer les li via appendTo */
+  list.appendTo(document.querySelector("#todolist"), 20);
 } catch (e) {
   const alertEl = createElement("div", {
     class: "alert alert-danger m-2",

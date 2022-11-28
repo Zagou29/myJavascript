@@ -23,16 +23,19 @@ export class TodoList {
    *methode pour afficher les todos daans le dom grace à des <li>
    * @param {HTMLelement} element
    */
-  appendTo(element) {
+  nb = 0;
+  appendTo(element, nb) {
     /**
      * @type {HTMLelements}input et boutons tri
      */
     //installe le formulaire de saisie et les boutons de tri
     element.append(cloneTemplate("todolist-layout"));
+    //initialise la liste des li à installer
     this.#listElement = element.querySelector(".list-group");
     /** rajoute chaque li dans list-group*/
-    for (let todo of this.#todos) {
-      const t = new TodoListItem(todo);
+    for (let i = 0; i < nb; i++) {
+      // t est une nouvel LI construit à partir du Todo choisi
+      const t = new TodoListItem(this.#todos[i]);
       this.#listElement.append(t.returnItem);
     }
     /**saisie d'un todo dans form et creation d'un TodoListItem */
@@ -43,13 +46,13 @@ export class TodoList {
     element.querySelectorAll(".btn-group button").forEach((button) => {
       button.addEventListener("click", (e) => this.#toggleFilter(e));
     });
+    /**l'event delete remonte dans this.#listElement  l'objet todo qui vient d"etre supprimé et  le suupprime des #todos */
     this.#listElement.addEventListener("delete", ({ detail: todou }) => {
       this.#todos = this.#todos.filter((t) => t !== todou);
-      console.log(this.#todos);
     });
+    /** l'event toogle met a jour le chgt 'completed' dans #todos */
     this.#listElement.addEventListener("toggle", ({ detail: todou }) => {
       todou.completed = !todou.completed;
-      console.log(this.#todos);
     });
   }
   /**
@@ -67,14 +70,14 @@ export class TodoList {
       title,
       completed: false,
     };
+    // Ajoute le nouveau todo à this.#todos, puis crée le li corrspondantet le rejoute dans le dom
     this.#todos.push(todo);
-
     const item = new TodoListItem(todo);
     this.#listElement.prepend(item.returnItem);
     form.reset();
   }
   /**
-   *
+   * affiche tout, à faire, fait via les classslist
    * @param {pointerEvent} e
    */
   #toggleFilter(e) {
@@ -98,19 +101,20 @@ export class TodoList {
   }
 }
 /**
+ * créer une <li> avce les elemsnts du todo en entrée
  * @return {HtlmElement} elementItem
  */
 class TodoListItem {
   #element;
   #todo;
   /** @type{Todo}
-   *
+   * {id:id, title:"", completed:false}
    */
   constructor(todo) {
     this.#todo = todo;
     const id = `todo-${todo.id}`;
+    //crée un li à partir du template
     const li = cloneTemplate("todolist-item").firstElementChild;
-
     this.#element = li;
     const checkbox = li.querySelector("input");
     checkbox.setAttribute("id", id);
@@ -119,22 +123,21 @@ class TodoListItem {
     }
     const label = li.querySelector("label");
     label.setAttribute("for", id);
-
     label.innerText = todo.title;
     const button = li.querySelector("button");
     /**rajoute la classlist is-completed */
     this.#toggle(checkbox);
-
     button.addEventListener("click", (e) => this.efface(e));
     checkbox.addEventListener("change", (e) => this.#toggle(e.currentTarget));
   }
   /**
+   * getter renvoie le li
    * @return {HTMLelement}
    */
   get returnItem() {
     return this.#element;
   }
-  /**efface l'item en cours */
+  /**efface l'item en cours  et crée un 'delete' dans this.#element qui remonte dans listElement*/
   efface(e) {
     e.preventDefault();
     const event = new CustomEvent("delete", {
@@ -153,7 +156,7 @@ class TodoListItem {
     checkbox.checked
       ? this.#element.classList.add("is-completed")
       : this.#element.classList.remove("is-completed");
-    // this.#todo.completed = checkbox.checked ? true : false;
+    /**  quand on toggle cela cree un event 'toggle' dont le detail est this.#todo, qui remonte de l'element this.#element vers this.#listElement*/
     const event = new CustomEvent("toggle", {
       detail: this.#todo,
       bubbles: true,
